@@ -5,14 +5,66 @@
     }
     main{
       width: 50%;
+      height: 80vh;
       margin: 5% auto;
       padding: 5%;
+      box-shadow:1px 1px 20px #213181;
+      border-radius:12%;
+      display:flex;
+      flex-direction:column;
+    }
+    #userMsg{
+      font-style:italic;
+      text-align:center;
+      padding:2%;
+      font-size:1.25rem;
+      margin-bottom:2rem;
     }
     .onWin{
-      background-color: green;
+      background-color: #00ff36;
       color: white;
     }
     .onLose{
-      background-color: red;
+      background-color: #f42010;
       color: white;
+    }
+    form{
+      margin:5%;
+      display:flex;
+      flex-direction:column;
+    }
+    h1, button{
+      text-transform:capitalize;
+      text-align:center;
+    }
+ 
+    
+   #checkGuess{
+      margin:auto;
+      margin-top:5%;
+      padding:2%;
+      border-radius:12%;
+      /*border:none;*/
+    }
+    #userFeedback{
+      display:flex;
+      flex-direction:column;
+    }
+    
+    button{
+      margin:auto;
+      margin-top:5%;
+      padding:2%;
+      border-radius:12%;
+      background-color: #8372ff;
+      color:#000;
+    }
+    p{
+      margin:auto;
+      border-radius:12%;
+      transition:all .5s linear;
+    }
+    input{
+      margin:auto;
+      padding:2%;
     }
