@@ -5,9 +5,9 @@
     }
     main{
       width: 50%;
-      height: 80vh;
+      height: 85vh;
       margin: 5% auto;
-      padding: 5%;
+      padding:5%;
       box-shadow:1px 1px 20px #213181;
       border-radius:12%;
       display:flex;
@@ -60,11 +60,23 @@
       color:#000;
     }
     p{
-      margin:auto;
+      margin:2% auto;
       border-radius:12%;
       transition:all .5s linear;
     }
     input{
-      margin:auto;
+      margin:2% auto;
       padding:2%;
+    }
+    
+    #guessCount{
+      font-weight:bold;
+    }
+    .lastCount{
+      color:red;
+      font-size:200%;
+    }
+    p{
+      text-align:center;
+      line-height:1.5;
     }
