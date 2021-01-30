@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Number Guessing Game</title>
+    <meta charset='utf-8'>
+    
+  </head>
+  <body>
+    <main>
+      <h1>Guess A Number</h1>
+      <p>I have a number between 1 and 100. Try to guess it in 10 or fewer tries!</p>
+      <form>
+        <label>Guess a number</label>
+        <input type='text' id='userInput'>
+        <button>Submit</button>
+      </form>
+      <div id='userFeedback'>
+        <p id='guessCount'></p>
+        <p id='guessList'></p>
+        <p id='userMsg'></p>
+      </div>
+    </main>
+  <script>
+  let randomNumber = Math.floor(Math.random()*101);
+  let newGameBtn = document.createElement('button');
+  let counter = 1;
+  
+  const userFeedback = document.querySelector('#userFeedback');
+  const guessCount = document.querySelector('#guessCount');
+  const guessList = document.querySelector('#guessList');
+  const userMsg = document.querySelector('#userMsg');
+  const form = document.querySelector('form ');
+  const userInput = document.querySelector('#userInput');
+  
+  form.addEventListener('submit', evaluateGuess);
+  
+  function evaluateGuess(e){
+    e.preventDefault();
+    let guess = Number(userInput.value);
+    if(guess === randomNumber && counter < 11){
+      userMsg.textContent = 'You got it!';
+      userInput.disabled = true;
+      userMsg.classList.add('onWin');
+      userFeedback.appendChild(newGameBtn);
+      newGameBtn.textContent = 'New Game?';
+      newGameBtn.addEventListener('click', newGame);
+      
+    }
+    if(counter < 10 && guess < randomNumber){
+      userMsg.textContent = 'Too low';
+    }
+    if(counter <10 && guess > randomNumber){
+      userMsg.textContent = 'Too hi!';
+    }
+    
+    if(counter > 10){
+      userMsg.textContent = 'You lose!';
+      userInput.disabled = true;
+      userMsg.classList.add('onLose');
+      userFeedback.appendChild(newGameBtn);
+      newGameBtn.textContent = 'New Game?';
+      newGameBtn.addEventListener('click', newGame);
+    }
+    console.log(guess, randomNumber);
+    userInput.value = '';
+    userInput.focus();
+    counter ++;
+  }
+  
+  function newGame(){
+    randomNumber = Math.floor(Math.random() * 101);
+    userMsg.textContent = '';
+    userInput.disabled = false;
+    userMsg.classList.remove('onWin');
+    userFeedback.removeChild(newGameBtn);
+    userInput.value = '';
+    
+  }
+  
+  
+  
+  
+      
+      
+  </script>
+  </body>
+</html>
